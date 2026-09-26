@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bf5j50a4xcgit"]
+
+[ext_resource type="Texture2D" uid="uid://0usxwt6o8osp" path="res://asset/sprites/cathouse.png" id="1_434y5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vivr"]
+size = Vector2(31, 14)
+
+[node name="cathouse" type="StaticBody2D" unique_id=1786229973]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=550350391]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_1vivr")
+
+[node name="Cathouse" type="Sprite2D" parent="." unique_id=798502776]
+position = Vector2(0, -16)
+texture = ExtResource("1_434y5")

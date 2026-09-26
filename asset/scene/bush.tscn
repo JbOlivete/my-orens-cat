@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://drpk0fr0udjg5"]
+
+[ext_resource type="Texture2D" uid="uid://be228hepssc26" path="res://asset/sprites/bush.png" id="1_flom4"]
+
+[node name="Bush" type="Sprite2D" unique_id=1346750765]
+y_sort_enabled = true
+texture = ExtResource("1_flom4")

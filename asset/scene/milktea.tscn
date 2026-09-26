@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ddwylspxhh52t"]
+
+[ext_resource type="Texture2D" uid="uid://d012mi8enkf17" path="res://asset/sprites/milktea.png" id="1_0uj17"]
+[ext_resource type="Script" uid="uid://bs4plepxuxxr" path="res://asset/script/milktea.gd" id="1_n4wo3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
+radius = 4.0
+
+[node name="Milktea" type="Area2D" unique_id=2048866959]
+collision_mask = 2
+script = ExtResource("1_n4wo3")
+
+[node name="Milktea" type="Sprite2D" parent="." unique_id=1498763701]
+position = Vector2(7.1054274e-15, -5)
+scale = Vector2(1.375, 1.2777778)
+texture = ExtResource("1_0uj17")
+
+[node name="milkteaCollision" type="CollisionShape2D" parent="." unique_id=1190376299]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_1vivr")
