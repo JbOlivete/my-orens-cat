@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var collisionBody: Area2D = $Area2D
 @onready var energyBar: TextureProgressBar = $"../../../TextureProgressBar"
 
-var SPEED = 75
+var SPEED = 50
 var catPosition = Vector2.ZERO
 
 func follow_player():
