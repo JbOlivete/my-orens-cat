@@ -14,9 +14,12 @@ extends Node2D
 @onready var surviveTimer: Timer = $surviveTimer
 @onready var surviveTimerLabel: Label = $timer
 @onready var spawnPoint: Marker2D = $ysort/spawnpoint
+@onready var mudspawnPoint: Marker2D = $ysort/Mudspawnpoint
 
 var spawnCat = preload("res://asset/scene/cat.tscn")
 var milktea = preload("res://asset/scene/milktea.tscn")
+var mud = preload("res://asset/scene/mud.tscn")
+
 var rng = RandomNumberGenerator.new()
 #timer label variable
 var timerCounter = 0
@@ -25,20 +28,26 @@ var secSecondNum = 0
 var minutesFirstNum = 0
 var minutesSecondNum = 0
 var hour = 0
-
 var catCounter = 0
 
-func toInstantiateMilkTea():
+func generateRandomLoc():
 	var yaxis = rng.randf_range(-250.0, 50.0)
 	var xaxis = rng.randf_range(50.0, 550.0)
 	var milkTeaSpawnLoc = Vector2(xaxis, yaxis)
-	milkTeaSpawnPoint.global_position = milkTeaSpawnLoc
+	return milkTeaSpawnLoc
+	
+func toInstantiateMilkTea(randomloc):
+	milkTeaSpawnPoint.global_position = randomloc
 	var addMilktea = milktea.instantiate()
 	milkTeaSpawnPoint.add_child(addMilktea)
-	print('y', yaxis)
-	print('x', xaxis)
-	print('combine', milkTeaSpawnLoc)
-
+	print(randomloc)
+	
+func toInstantiateMud(randomloc):
+	mudspawnPoint.global_position = randomloc
+	var addMud = mud.instantiate()
+	mudspawnPoint.add_child(addMud)
+	print(randomloc)
+	
 func addSpeed():
 	var addedSpeed = playerSpeed.SPEED
 	addedSpeed *= 0.3
@@ -117,7 +126,8 @@ func _on_speedduration_timeout() -> void:
 	print('timeout')
 
 func _on_milktea_respawn_timeout() -> void:
-	toInstantiateMilkTea()
+	var randomloc = generateRandomLoc()
+	toInstantiateMilkTea(randomloc)
 	milkTeaSpawnPoint.show()
 	collision.set_deferred("disabled", false)
 	print('timeout respawn')
@@ -131,7 +141,10 @@ func _on_retry_pressed() -> void:
 		get_tree().reload_current_scene()
 	
 func _ready() -> void:
-	toInstantiateMilkTea()
+	var mtRandomLoc = generateRandomLoc()
+	var mudRandomLoc = generateRandomLoc()
+	toInstantiateMilkTea(mtRandomLoc)
+	toInstantiateMud(mudRandomLoc)
 	surviveTimer.start()
 
 func _physics_process(delta: float) -> void:
