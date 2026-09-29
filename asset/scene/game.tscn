@@ -117,6 +117,8 @@ position = Vector2(-131.00003, 38)
 wait_time = 7.0
 one_shot = true
 
+[node name="Mudspawnpoint" type="Marker2D" parent="ysort" unique_id=223053041]
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=79950311]
 offset_left = 34.0
 offset_top = -264.0
