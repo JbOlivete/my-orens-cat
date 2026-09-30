@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://divfl7kyr1eue"]
 
 [ext_resource type="Texture2D" uid="uid://derqiggfvdoot" path="res://asset/sprites/mud.png" id="1_aumge"]
+[ext_resource type="Script" uid="uid://br1o685a1exl3" path="res://asset/script/mud_area_2d.gd" id="2_40er6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1vivr"]
 
 [node name="Mud" type="Sprite2D" unique_id=2137843844]
-position = Vector2(1, -7)
 texture = ExtResource("1_aumge")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1504034034]
+collision_mask = 2
+script = ExtResource("2_40er6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=269360878]
 position = Vector2(0, -2)

@@ -119,6 +119,10 @@ one_shot = true
 
 [node name="Mudspawnpoint" type="Marker2D" parent="ysort" unique_id=223053041]
 
+[node name="mudSlowduration" type="Timer" parent="ysort" unique_id=1751706928]
+wait_time = 5.071000000000001
+one_shot = true
+
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=79950311]
 offset_left = 34.0
 offset_top = -264.0
@@ -208,6 +212,7 @@ flip_h = true
 [connection signal="timeout" from="ysort/spawnpoint/catTimerSpawn" to="." method="_on_cat_timer_spawn_timeout"]
 [connection signal="body_entered" from="ysort/milkteaSpawnPoint/Milktea" to="." method="_on_milktea_body_entered"]
 [connection signal="timeout" from="ysort/milkteaRespawn" to="." method="_on_milktea_respawn_timeout"]
+[connection signal="timeout" from="ysort/mudSlowduration" to="." method="_on_mud_slowduration_timeout"]
 [connection signal="pressed" from="EndGamePopup/retry" to="." method="_on_retry_pressed"]
 
 [editable path="ysort/player"]
