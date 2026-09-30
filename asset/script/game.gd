@@ -139,6 +139,10 @@ func _on_retry_pressed() -> void:
 	if retryBtn.button_pressed == true:
 		get_tree().paused = false
 		get_tree().reload_current_scene()
+
+func _on_mud_slowduration_timeout() -> void:
+	playerSpeed.SPEED += 10
+	print('Speed after slowduration', playerSpeed.SPEED)
 	
 func _ready() -> void:
 	var mtRandomLoc = generateRandomLoc()
