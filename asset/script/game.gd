@@ -141,7 +141,7 @@ func _on_retry_pressed() -> void:
 		get_tree().reload_current_scene()
 
 func _on_mud_slowduration_timeout() -> void:
-	playerSpeed.SPEED += 10
+	playerSpeed.SPEED += 50
 	print('Speed after slowduration', playerSpeed.SPEED)
 	
 func _ready() -> void:

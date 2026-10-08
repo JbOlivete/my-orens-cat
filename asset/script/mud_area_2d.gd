@@ -6,7 +6,7 @@ extends Area2D
 @onready var collisionShape: CollisionShape2D = $CollisionShape2D
 func reduce_speed():
 	if mudArea2d.has_overlapping_bodies() == true:
-		playerCharacter.SPEED -= 10
+		playerCharacter.SPEED -= 50
 		collisionShape.set_deferred("disabled", true)
 		slowDuration.start()
 		print('Speed after collision on mud', playerCharacter.SPEED)
